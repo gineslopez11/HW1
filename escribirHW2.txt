@@ -1,2 +1,5 @@
-[DEBUG] <esta en debug> 
-[ERROR] <hay error> 
+
+[INFO] <Debug> 
+[ERROR] <Division por cero> 
+Division por cero (nombre del archivo: main.cpp) ; linea: 47 
+[SECURITY] Access Denied <Usuario123> 
