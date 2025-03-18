@@ -1,0 +1,2 @@
+[DEBUG] <esta en debug> 
+[ERROR] <hay error> 
