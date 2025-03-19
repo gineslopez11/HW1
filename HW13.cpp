@@ -20,7 +20,7 @@ void insertar (unique_ptr<nodo>& cabeza,int valor, int posicion);
 
 void borrar (unique_ptr<nodo>& cabeza, int posicion);
 
-void imprimir_lista (unique_ptr<nodo>& cabeza);
+void imprimir_lista (const unique_ptr<nodo>& cabeza);
 
 
 int main(){
@@ -82,6 +82,7 @@ void insertar (unique_ptr<nodo>& cabeza,int valor, int posicion){
     if (!actual){
         cout<<"Posicion fuera de rango"<<endl;
         agregar_atras(cabeza,valor);
+        return;
     }
     unique_ptr<nodo> nodo_agregar = crear_nodo(valor);
     
@@ -107,16 +108,17 @@ void borrar (unique_ptr<nodo>& cabeza, int posicion){
 
     if (!actual->siguiente){
         cout<<"Posicion fuera de rango"<<endl;
+        return;
     }
     anterior->siguiente = move(actual->siguiente);
 
 }
 
-void imprimir_lista (unique_ptr<nodo>& cabeza){
-    unique_ptr<nodo> actual = move(cabeza);
+void imprimir_lista (const unique_ptr<nodo>& cabeza){
+    nodo* actual = cabeza.get();
 
     while (actual){
         cout<<""<<actual->data<<"-->"<<endl;
-        actual = move(actual->siguiente);
+        actual = actual->siguiente.get();
     }
 }
