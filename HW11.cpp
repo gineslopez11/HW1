@@ -14,11 +14,11 @@ int main (){
 
 vector<vector<int>> matriz_cuadrada (int n){
     vector<vector<int>> matriz(n, vector<int>(n));
-    int valor_final = n*n;
+    int valor_final = n*n; //tamaño de matriz, entonces se cual es la posicion final (fila n col n)
 
     for (int i = n-1; i >= 0; i--){
         for (int j = n-1; j >= 0; j--){
-            matriz[i][j] = valor_final;
+            matriz[i][j] = valor_final; //busque formula para obtener filas y columnas en una matris "unidimencional"
             valor_final -= 1;
         }
     }
@@ -27,7 +27,7 @@ vector<vector<int>> matriz_cuadrada (int n){
 }
 
 void imprimir_celdas (const vector<vector<int>>& matriz, int n){
-    for (int i = n*n - 1; i >= 0; i--){
+    for (int i = n*n - 1; i >= 0; i--){ //voy de atras hacia adelante
         int fila = i / n;      
         int columna = i % n; 
 
